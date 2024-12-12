@@ -27,11 +27,11 @@ from contextlib import asynccontextmanager
 app = FastAPI()
 
 # ข้อมูล token และ channel secret สำหรับ LINE
-ACCESS_TOKEN = os.getenv("LINE_ACCESS_TOKEN", "")
-CHANNEL_SECRET = os.getenv("LINE_CHANNEL_SECRET", "")
+ACCESS_TOKEN = os.getenv("LINE_ACCESS_TOKEN", "kW/vYH1O/UDlcR2YjVyrCkcGsrPpDK4inUuFr8eAS6qWzve3ke0H1jVJfPv8WQO8/nwDFdwKeiLeB4kaXOpOluA1hp/UP0Xp/uAKOQlkJx87v6eAmRVc1UjfCVW2alkSX8E2mMpn8iLGhUG+gi+vKgdB04t89/1O/w1cDnyilFU=")
+CHANNEL_SECRET = os.getenv("LINE_CHANNEL_SECRET", "a5c26bbf50ed2efefd3b6dc4391431ac")
 
 # ข้อมูล Gemini api key
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyBcjYfsh-m8p-91uBLwbcFS7_Owl48G07g")
 
 # การเชื่อมต่อ และตั้งค่าข้อมูลเพื่อเรียกใช้งาน LINE Messaging API
 configuration = Configuration(access_token=ACCESS_TOKEN)
@@ -240,11 +240,11 @@ gemini = GeminiRAGSystem(
 async def lifespan(app: FastAPI):
     # ข้อมูลตัวอย่างที่ใช้สำหรับ Gemini
     sample_documents = [
-        "จิรภัทร ทำดี คือ ชายหนุ่มที่มีความสามารถในการเขียนโปรแกรมที่มาจากบริษัท ClickNext ที่เป็นบริษัทด้านการพัฒนาโปรแกรมที่มีชื่อเสียง",
-        "จิรภัทร ทำดี มีชื่อเล่นว่า ปาล์ม เกิดวันที่ 25 มกราคม 2555 ที่จังหวัดสระบุรี ศึกษาจบจากมหาวิทยาลัยบูรพา สาขาวิศวกรรมคอมพิวเตอร์",
+        "ประกายดาว รามศิริ คือ หญิงสาวที่รักแมวมาก",
+        "ประกายดาว รามศิริ มีชื่อเล่นว่า จ๋า เกิดวันที่ 6 ตุลาคม 2546 ที่จังหวัดชลบุรี ศึกษาจบจากมหาวิทยาลัยบูรพา สาขาปัญญาประดิษฐ์ประยุกต์และเทคโนโลยีอัจฉริยะ",
         "งาน BUU-Bootcamp-2024 จัดที่มหาวิทยาลัยบูรพา ในวันที่ 25 มกราคม ปีค.ศ.2024 โดยมีการจัดกิจกรรมต่าง ๆ ที่เกี่ยวข้องกับการพัฒนาซอฟต์แวร์ เวลา 9:00 น. - 16:00 น.",
-        "มหาวิทยาลัยบูรพา สาขาวิชาAI ปีการศึกษา 2565 มีนักศึกษาจำนวน 100 คน มีอาจารย์ที่ปรึกษา 10 คน"
-    ]
+        "ClickNext Team AI มีทั้งหมด 5 คน พี่ดาว ตำแหน่ง BA พี่เจ๋ง ตำแหน่ง Backend Dev พี่ปาล์ม ตำแหน่ง Fronted Dev พี่ออย ตำแหน่ง BA พี่ชวน ตำแหน่ง Data Operation"
+    
     
     # เพิ่มข้อมูลตัวอย่างลงใน Gemini
     for doc in sample_documents:
